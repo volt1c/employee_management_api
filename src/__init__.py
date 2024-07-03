@@ -1,14 +1,13 @@
-from flask import Flask
 import os
-
+from flask import Flask
 from flask_jwt_extended import JWTManager
-
-from src.config.config import Config
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 
+from src.config.config import Config
+from src.routes import api
 
 load_dotenv()
 
@@ -30,9 +29,6 @@ bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
-
-
-from src.routes import api
 
 app.register_blueprint(api, url_prefix="/api")
 

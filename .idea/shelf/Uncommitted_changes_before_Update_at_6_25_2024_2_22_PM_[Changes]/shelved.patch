@@ -1,0 +1,108 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	(revision 6d90a7eaad097136b50f0acbf73861bc55716d9a)
++++ b/README.md	(date 1719318098005)
+@@ -1,0 +1,21 @@
++## Instruction
++
++### 1. Create database
++For example `employee_management`
++
++### 2. Correct `.env` file
++```dotenv
++SQLALCHEMY_DATABASE_URI_DEV='mysql://username:password@address/database'
++# Property belowe shouldn't be changed
++SQLALCHEMY_TRACK_MODIFICATIONS=False
++JWT_SECRET_KEY='your_jwt_secret_key'
++JSON_SORT_KEYS=False
++# After admins registration change to False and restart app
++ROUTE_ADMIN_REGISTRATION=True
++```
++
++### 3. Run application
++
++
++### 3. Register admin(s)
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"13c66241-d95a-48b2-887c-578698a32eb3\" name=\"Changes\" comment=\"init\">\n      <change afterPath=\"$PROJECT_DIR$/README.md\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/app.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/__init__.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/config/__init__.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/config/config.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/config/dev_config.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/config/production_config.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/controllers/__init__.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/controllers/attendance.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/controllers/auth.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/controllers/departments.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/controllers/employees.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/controllers/schedules.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/middlewares/__init__.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/models/__init__.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/models/admin.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/models/attendace.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/models/department.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/models/employee.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/models/schedule.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/routes/__init__.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/services/__init__.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/services/jwt_service.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/utils.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/auth.py\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/config.py\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/db.py\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/employee_management_api.py\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/init-db.sql\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/models.py\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/requirements.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/requirements.txt\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/resources/employee.py\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/resources/schedule.py\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 0\n}</component>\n  <component name=\"ProjectId\" id=\"2i4Oo2TXpz6Ig9163wXP9LMXpFZ\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Python.app.executor&quot;: &quot;Run&quot;,\n    &quot;Python.db.executor&quot;: &quot;Run&quot;,\n    &quot;Python.employee_management_api.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;\n  }\n}</component>\n  <component name=\"RunManager\" selected=\"Python.app\">\n    <configuration name=\"app\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"employee_management_api\" />\n      <option name=\"ENV_FILES\" value=\"\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/app.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"employee_management_api\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"employee_management_api\" />\n      <option name=\"ENV_FILES\" value=\"\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"D:\\Projekts\\employee_management_api\\employee_management_api.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Python.app\" />\n        <item itemvalue=\"Python.employee_management_api\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"13c66241-d95a-48b2-887c-578698a32eb3\" name=\"Changes\" comment=\"\" />\n      <created>1718746555104</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1718746555104</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"init\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1718756503296</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1718756503296</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"init\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1718757344708</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1718757344708</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"3\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"init\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"init\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6d90a7eaad097136b50f0acbf73861bc55716d9a)
++++ b/.idea/workspace.xml	(date 1719318098375)
+@@ -4,41 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="13c66241-d95a-48b2-887c-578698a32eb3" name="Changes" comment="init">
+-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/config/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/config/config.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/config/dev_config.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/config/production_config.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controllers/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controllers/attendance.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controllers/auth.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controllers/departments.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controllers/employees.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controllers/schedules.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/middlewares/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/models/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/models/admin.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/models/attendace.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/models/department.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/models/employee.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/models/schedule.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/routes/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/services/__init__.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/services/jwt_service.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/auth.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/db.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/employee_management_api.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/init-db.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/employee.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/schedule.py" beforeDir="false" />
++    <list default="true" id="13c66241-d95a-48b2-887c-578698a32eb3" name="Changes" comment="feat: rebuild init">
++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -158,11 +125,20 @@
+       <option name="project" value="LOCAL" />
+       <updated>1718757344708</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="feat: rebuild init">
++      <option name="closed" value="true" />
++      <created>1719317769248</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1719317769248</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="init" />
+-    <option name="LAST_COMMIT_MESSAGE" value="init" />
++    <MESSAGE value="feat: rebuild init" />
++    <option name="LAST_COMMIT_MESSAGE" value="feat: rebuild init" />
+   </component>
+ </project>
+\ No newline at end of file
