@@ -11,17 +11,16 @@ load_dotenv()
 
 app = Flask(__name__)
 
-config = Config().dev_config
-
-app.env = config.ENV
-
-json_sort_keys = os.environ.get('JSON_SORT_KEYS')
-app.json.sort_keys = json_sort_keys == 'True'
-app.config['JSON_SORT_KEYS'] = json_sort_keys
-app.secret_key = os.environ.get("SECRET_KEY")
+# Config
+app.env = os.environ.get('ENV')
+app.secret_key = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI_DEV")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = os.environ.get("SQLALCHEMY_TRACK_MODIFICATIONS")
-app.config['JWT_SECRET_KEY'] = os.environ.get("JWT_SECRET_KEY")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
+app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
+
+# Don't sort keys
+app.json.sort_keys = False
+app.config['JSON_SORT_KEYS'] = False
 
 db.init_app(app)
 bcrypt = Bcrypt(app)
