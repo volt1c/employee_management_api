@@ -1,12 +1,10 @@
 import os
+from dotenv import load_dotenv
 from flask import Flask
 from flask_jwt_extended import JWTManager
-from dotenv import load_dotenv
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
-
-from src.config.config import Config
+from src.database import db
 from src.routes import api
 
 load_dotenv()
@@ -25,14 +23,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI_
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = os.environ.get("SQLALCHEMY_TRACK_MODIFICATIONS")
 app.config['JWT_SECRET_KEY'] = os.environ.get("JWT_SECRET_KEY")
 
+db.init_app(app)
 bcrypt = Bcrypt(app)
-db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
 
 app.register_blueprint(api, url_prefix="/api")
-
-# import models to let the migrate tool know
 
 with app.app_context():
     db.create_all()
