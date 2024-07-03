@@ -1,6 +1,11 @@
-from src import config, app
+import os
+from src import app
 
 if __name__ == "__main__":
-    app.run(host=config.HOST,
-            port=config.PORT,
-            debug=config.DEBUG)
+    host = os.getenv('HOST')
+    port = os.getenv('PORT')
+    debug = os.getenv('DEBUG') == 'True'
+
+    app.run(host=host,
+            port=port,
+            debug=debug)
