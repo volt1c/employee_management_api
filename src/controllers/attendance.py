@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import request, Response, jsonify, Blueprint
+from flask import request, jsonify, Blueprint
 from src import db
 from src.models.attendace import Attendance
 
@@ -13,11 +13,7 @@ def log_entry():
     new_entry = Attendance(employee_id=employee_id)
     db.session.add(new_entry)
     db.session.commit()
-    return Response(
-        response=jsonify({'message': 'Entry logged successfully'}).data,
-        status=201,
-        mimetype='application/json'
-    )
+    return jsonify({'message': 'Entry logged successfully'}), 201
 
 
 @attendance.route('/log_exit', methods=['POST'])
@@ -35,13 +31,5 @@ def log_exit():
             new_exit = Attendance(employee_id=employee_id, exit_time=datetime.now())
             db.session.add(new_exit)
         db.session.commit()
-        return Response(
-            response=jsonify({'message': 'Exit logged successfully'}).data,
-            status=200,
-            mimetype='application/json'
-        )
-    return Response(
-        response=jsonify({'message': 'No entry found for this employee'}).data,
-        status=404,
-        mimetype='application/json'
-    )
+        return jsonify({'message': 'Exit logged successfully'}), 200
+    return jsonify({'message': 'No entry found for this employee'}), 404
