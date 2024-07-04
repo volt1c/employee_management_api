@@ -1,7 +1,7 @@
 # pylint: disable=too-few-public-methods
 import bcrypt
 
-from src.database import db
+from app.database import db
 
 
 class Admin(db.Model):
