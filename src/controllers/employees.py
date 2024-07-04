@@ -1,5 +1,5 @@
-from flask import request, Response, Blueprint, jsonify
 from datetime import datetime
+from flask import request, Response, Blueprint, jsonify
 from flask_jwt_extended import jwt_required
 
 from src import db
@@ -64,8 +64,14 @@ def get_employee(employee_id):
             'phone': employee.phone,
             'date_of_joining': employee.date_of_joining.strftime('%Y-%m-%d')
         }
-        return Response(response=jsonify(employee_data).data, status=200, mimetype='application/json')
-    return Response(response=jsonify({'message': 'Employee not found'}).data, status=404, mimetype='application/json')
+        return Response(
+            response=jsonify(employee_data).data,
+            status=200,
+            mimetype='application/json')
+    return Response(
+        response=jsonify({'message': 'Employee not found'}).data,
+        status=404,
+        mimetype='application/json')
 
 
 @employees.route('/<int:employee_id>', methods=['PUT'])
@@ -84,9 +90,11 @@ def update_employee(employee_id):
         return Response(
             response=jsonify({'message': 'Employee updated successfully'}).data,
             status=200,
-            mimetype='application/json'
-        )
-    return Response(response=jsonify({'message': 'Employee not found'}).data, status=404, mimetype='application/json')
+            mimetype='application/json')
+    return Response(
+        response=jsonify({'message': 'Employee not found'}).data,
+        status=404,
+        mimetype='application/json')
 
 
 @employees.route('/<int:employee_id>', methods=['DELETE'])
@@ -99,6 +107,8 @@ def delete_employee(employee_id):
         return Response(
             response=jsonify({'message': 'Employee deleted successfully'}).data,
             status=200,
-            mimetype='application/json'
-        )
-    return Response(response=jsonify({'message': 'Employee not found'}).data, status=404, mimetype='application/json')
+            mimetype='application/json')
+    return Response(
+        response=jsonify({'message': 'Employee not found'}).data,
+        status=404,
+        mimetype='application/json')

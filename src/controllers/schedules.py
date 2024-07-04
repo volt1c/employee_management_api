@@ -1,5 +1,5 @@
-from flask import request, Response, Blueprint, jsonify
 from datetime import datetime
+from flask import request, Response, Blueprint, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from src.models.schedule import Schedule
 
@@ -13,7 +13,10 @@ schedules = Blueprint('schedules', __name__)
 def create_schedule():
     current_admin_id = get_jwt_identity()
     if not current_admin_id:
-        return Response(response=jsonify({'message': 'Unauthorized'}).data, status=403, mimetype='application/json')
+        return Response(
+            response=jsonify({'message': 'Unauthorized'}).data,
+            status=403,
+            mimetype='application/json')
 
     data = request.get_json()
     new_schedule = Schedule(
@@ -34,7 +37,10 @@ def create_schedule():
 def get_schedules():
     current_admin_id = get_jwt_identity()
     if not current_admin_id:
-        return Response(response=jsonify({'message': 'Unauthorized'}).data, status=403, mimetype='application/json')
+        return Response(
+            response=jsonify({'message': 'Unauthorized'}).data,
+            status=403,
+            mimetype='application/json')
 
     schedules_all = Schedule.query.all()
     schedules_list = [{
@@ -46,7 +52,10 @@ def get_schedules():
         'start_time': sch.start_time.strftime('%H:%M:%S'),
         'end_time': sch.end_time.strftime('%H:%M:%S')
     } for sch in schedules_all]
-    return Response(response=jsonify(schedules_list).data, status=200, mimetype='application/json')
+    return Response(
+        response=jsonify(schedules_list).data,
+        status=200,
+        mimetype='application/json')
 
 
 @schedules.route('/schedules/<int:schedule_id>', methods=['GET'])
@@ -54,7 +63,10 @@ def get_schedules():
 def get_schedule(schedule_id):
     current_admin_id = get_jwt_identity()
     if not current_admin_id:
-        return Response(response=jsonify({'message': 'Unauthorized'}).data, status=403, mimetype='application/json')
+        return Response(
+            response=jsonify({'message': 'Unauthorized'}).data,
+            status=403,
+            mimetype='application/json')
 
     schedule = Schedule.query.get(schedule_id)
     if schedule:
@@ -67,8 +79,14 @@ def get_schedule(schedule_id):
             'start_time': schedule.start_time.strftime('%H:%M:%S'),
             'end_time': schedule.end_time.strftime('%H:%M:%S')
         }
-        return Response(response=jsonify(schedule_data).data, status=200, mimetype='application/json')
-    return Response(response=jsonify({'message': 'Schedule not found'}).data, status=404, mimetype='application/json')
+        return Response(
+            response=jsonify(schedule_data).data,
+            status=200,
+            mimetype='application/json')
+    return Response(
+        response=jsonify({'message': 'Schedule not found'}).data,
+        status=404,
+        mimetype='application/json')
 
 
 @schedules.route('/schedules/<int:schedule_id>', methods=['PUT'])
@@ -76,7 +94,10 @@ def get_schedule(schedule_id):
 def update_schedule(schedule_id):
     current_admin_id = get_jwt_identity()
     if not current_admin_id:
-        return Response(response=jsonify({'message': 'Unauthorized'}).data, status=403, mimetype='application/json')
+        return Response(
+            response=jsonify({'message': 'Unauthorized'}).data,
+            status=403,
+            mimetype='application/json')
 
     data = request.get_json()
     schedule = Schedule.query.get(schedule_id)
@@ -87,9 +108,14 @@ def update_schedule(schedule_id):
         schedule.start_time = datetime.strptime(data['start_time'], '%H:%M:%S').time()
         schedule.end_time = datetime.strptime(data['end_time'], '%H:%M:%S').time()
         db.session.commit()
-        return Response(response=jsonify({'message': 'Schedule updated successfully'}).data, status=200,
-                        mimetype='application/json')
-    return Response(response=jsonify({'message': 'Schedule not found'}).data, status=404, mimetype='application/json')
+        return Response(
+            response=jsonify({'message': 'Schedule updated successfully'}).data,
+            status=200,
+            mimetype='application/json')
+    return Response(
+        response=jsonify({'message': 'Schedule not found'}).data,
+        status=404,
+        mimetype='application/json')
 
 
 @schedules.route('/schedules/<int:schedule_id>', methods=['DELETE'])
@@ -97,12 +123,20 @@ def update_schedule(schedule_id):
 def delete_schedule(schedule_id):
     current_admin_id = get_jwt_identity()
     if not current_admin_id:
-        return Response(response=jsonify({'message': 'Unauthorized'}).data, status=403, mimetype='application/json')
+        return Response(
+            response=jsonify({'message': 'Unauthorized'}).data,
+            status=403,
+            mimetype='application/json')
 
     schedule = Schedule.query.get(schedule_id)
     if schedule:
         db.session.delete(schedule)
         db.session.commit()
-        return Response(response=jsonify({'message': 'Schedule deleted successfully'}).data, status=200,
-                        mimetype='application/json')
-    return Response(response=jsonify({'message': 'Schedule not found'}).data, status=404, mimetype='application/json')
+        return Response(
+            response=jsonify({'message': 'Schedule deleted successfully'}).data,
+            status=200,
+            mimetype='application/json')
+    return Response(
+        response=jsonify({'message': 'Schedule not found'}).data,
+        status=404,
+        mimetype='application/json')
