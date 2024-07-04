@@ -1,5 +1,5 @@
-from flask import request, Response, jsonify, Blueprint
 from datetime import datetime
+from flask import request, Response, jsonify, Blueprint
 from src import db
 from src.models.attendace import Attendance
 
@@ -24,7 +24,10 @@ def log_entry():
 def log_exit():
     data = request.get_json()
     employee_id = data['employee_id']
-    log = Attendance.query.filter_by(employee_id=employee_id).order_by(Attendance.entry_time.desc()).first()
+    log = (Attendance.query
+           .filter_by(employee_id=employee_id)
+           .order_by(Attendance.entry_time.desc())
+           .first())
     if log:
         if not log.exit_time:
             log.exit_time = datetime.now()
@@ -37,9 +40,8 @@ def log_exit():
             status=200,
             mimetype='application/json'
         )
-    else:
-        return Response(
-            response=jsonify({'message': 'No entry found for this employee'}).data,
-            status=404,
-            mimetype='application/json'
-        )
+    return Response(
+        response=jsonify({'message': 'No entry found for this employee'}).data,
+        status=404,
+        mimetype='application/json'
+    )

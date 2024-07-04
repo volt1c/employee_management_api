@@ -42,7 +42,13 @@ def admin_register():
     password = data.get('password')
     email = data.get('email')
 
-    if Admin.query.filter_by(username=username).first() or Admin.query.filter_by(email=email).first():
+    admin_by_username = (Admin.query
+                         .filter_by(username=username)
+                         .first())
+    admin_by_email = (Admin.query
+                      .filter_by(email=email)
+                      .first())
+    if admin_by_username or admin_by_email:
         return Response(
             response=jsonify({"msg": "Username or email already exists"}).data,
             status=400,

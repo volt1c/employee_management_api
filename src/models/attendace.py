@@ -1,3 +1,4 @@
+# pylint: disable=too-few-public-methods
 from _datetime import datetime
 from src import db
 

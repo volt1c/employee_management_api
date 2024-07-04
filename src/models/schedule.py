@@ -1,3 +1,5 @@
+# pylint: disable=too-few-public-methods
+# pylint: disable=line-too-long
 from src import db
 
 
