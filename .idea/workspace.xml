@@ -197,7 +197,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720040314098</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="style: lint">
+      <option name="closed" value="true" />
+      <created>1720079629725</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720079629725</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactor: use jsonify for response">
+      <option name="closed" value="true" />
+      <created>1720079720520</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720079720520</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -208,6 +224,8 @@
     <MESSAGE value="fix: db import" />
     <MESSAGE value="feat: move config to .env only" />
     <MESSAGE value="chore: add .env example" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add .env example" />
+    <MESSAGE value="style: lint" />
+    <MESSAGE value="refactor: use jsonify for response" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: use jsonify for response" />
   </component>
 </project>

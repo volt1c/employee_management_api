@@ -1,5 +1,5 @@
 # pylint: disable=too-few-public-methods
-from src import db
+from src.database import db
 
 
 class Employee(db.Model):

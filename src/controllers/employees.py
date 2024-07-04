@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import request, Blueprint, jsonify
 from flask_jwt_extended import jwt_required
 
-from src import db
+from src.database import db
 from src.models.employee import Employee
 
 

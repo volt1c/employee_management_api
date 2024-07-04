@@ -5,7 +5,7 @@ from flask import request, Blueprint, jsonify, abort
 from flask_jwt_extended import create_access_token
 
 from src.models.admin import Admin
-from src import db
+from src.database import db
 
 # user controller blueprint to be registered with api blueprint
 auth = Blueprint('auth', __name__)

@@ -1,6 +1,6 @@
 # pylint: disable=too-few-public-methods
 # pylint: disable=line-too-long
-from src import db
+from src.database import db
 
 
 class Schedule(db.Model):
