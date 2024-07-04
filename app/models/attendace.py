@@ -1,6 +1,6 @@
 # pylint: disable=too-few-public-methods
 from _datetime import datetime
-from src.database import db
+from app.database import db
 
 
 class Attendance(db.Model):

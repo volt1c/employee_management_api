@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import request, jsonify, Blueprint
-from src.database import db
-from src.models.attendace import Attendance
+from app.database import db
+from app.models.attendace import Attendance
 
 attendance = Blueprint('attendance', __name__)
 

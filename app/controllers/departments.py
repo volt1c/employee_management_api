@@ -1,8 +1,8 @@
 from flask import request, Blueprint, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from src.database import db
-from src.models.department import Department
+from app.database import db
+from app.models.department import Department
 
 departments = Blueprint('departments', __name__)
 

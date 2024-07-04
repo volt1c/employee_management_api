@@ -2,8 +2,8 @@ from datetime import datetime
 from flask import request, Blueprint, jsonify
 from flask_jwt_extended import jwt_required
 
-from src.database import db
-from src.models.employee import Employee
+from app.database import db
+from app.models.employee import Employee
 
 
 employees = Blueprint('employees', __name__)

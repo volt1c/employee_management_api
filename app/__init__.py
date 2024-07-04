@@ -4,8 +4,8 @@ from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
-from src.database import db
-from src.routes import api
+from app.database import db
+from app.routes import api
 
 load_dotenv()
 

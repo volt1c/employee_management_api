@@ -1,10 +1,10 @@
 from flask import Blueprint
 
-from src.controllers.auth import auth
-from src.controllers.attendance import attendance
-from src.controllers.departments import departments
-from src.controllers.employees import employees
-from src.controllers.schedules import schedules
+from app.controllers.auth import auth
+from app.controllers.attendance import attendance
+from app.controllers.departments import departments
+from app.controllers.employees import employees
+from app.controllers.schedules import schedules
 
 # main blueprint to be registered with application
 api = Blueprint('api', __name__)
