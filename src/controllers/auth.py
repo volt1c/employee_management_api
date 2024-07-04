@@ -1,6 +1,6 @@
 import os
 
-from flask import request, Response, Blueprint, jsonify, abort
+from flask import request, Blueprint, jsonify, abort
 
 from flask_jwt_extended import create_access_token
 
@@ -21,16 +21,8 @@ def admin_login():
     admin = Admin.query.filter_by(username=username).first()
     if admin and admin.check_password(password):
         access_token = create_access_token(identity=admin.admin_id)
-        return Response(
-            response=jsonify(access_token=access_token).data,
-            status=200,
-            mimetype='application/json'
-        )
-    return Response(
-        response=jsonify({"msg": "Bad username or password"}).data,
-        status=401,
-        mimetype='application/json'
-    )
+        return jsonify(access_token=access_token), 200
+    return jsonify({"msg": "Bad username or password"}), 401
 
 
 @auth.route('/register', methods=['POST'], )
@@ -49,18 +41,10 @@ def admin_register():
                       .filter_by(email=email)
                       .first())
     if admin_by_username or admin_by_email:
-        return Response(
-            response=jsonify({"msg": "Username or email already exists"}).data,
-            status=400,
-            mimetype='application/json'
-        )
+        return jsonify({"msg": "Username or email already exists"}), 400
 
     new_admin = Admin(username=username, email=email)
     new_admin.set_password(password)
     db.session.add(new_admin)
     db.session.commit()
-    return Response(
-        response=jsonify({"msg": "Admin registered successfully"}).data,
-        status=201,
-        mimetype='application/json'
-    )
+    return jsonify({"msg": "Admin registered successfully"}), 201

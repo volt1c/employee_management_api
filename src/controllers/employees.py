@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import request, Response, Blueprint, jsonify
+from flask import request, Blueprint, jsonify
 from flask_jwt_extended import jwt_required
 
 from src import db
@@ -23,11 +23,7 @@ def create_employee():
     )
     db.session.add(new_employee)
     db.session.commit()
-    return Response(
-        response=jsonify({'message': 'Employee created successfully'}).data,
-        status=201,
-        mimetype='application/json'
-    )
+    return jsonify({'message': 'Employee created successfully'}), 201
 
 
 @employees.route('/', methods=['GET'])
@@ -43,11 +39,7 @@ def get_employees():
         'phone': emp.phone,
         'date_of_joining': emp.date_of_joining.strftime('%Y-%m-%d')
     } for emp in employees_all]
-    return Response(
-        response=jsonify(employees_list).data,
-        status=200,
-        mimetype='application/json'
-    )
+    return jsonify(employees_list), 200
 
 
 @employees.route('/<int:employee_id>', methods=['GET'])
@@ -64,14 +56,8 @@ def get_employee(employee_id):
             'phone': employee.phone,
             'date_of_joining': employee.date_of_joining.strftime('%Y-%m-%d')
         }
-        return Response(
-            response=jsonify(employee_data).data,
-            status=200,
-            mimetype='application/json')
-    return Response(
-        response=jsonify({'message': 'Employee not found'}).data,
-        status=404,
-        mimetype='application/json')
+        return jsonify(employee_data), 200
+    return jsonify({'message': 'Employee not found'}), 404
 
 
 @employees.route('/<int:employee_id>', methods=['PUT'])
@@ -87,14 +73,8 @@ def update_employee(employee_id):
         employee.phone = data['phone']
         employee.date_of_joining = datetime.strptime(data['date_of_joining'], '%Y-%m-%d')
         db.session.commit()
-        return Response(
-            response=jsonify({'message': 'Employee updated successfully'}).data,
-            status=200,
-            mimetype='application/json')
-    return Response(
-        response=jsonify({'message': 'Employee not found'}).data,
-        status=404,
-        mimetype='application/json')
+        return jsonify({'message': 'Employee updated successfully'}), 200
+    return jsonify({'message': 'Employee not found'}), 404
 
 
 @employees.route('/<int:employee_id>', methods=['DELETE'])
@@ -104,11 +84,5 @@ def delete_employee(employee_id):
     if employee:
         db.session.delete(employee)
         db.session.commit()
-        return Response(
-            response=jsonify({'message': 'Employee deleted successfully'}).data,
-            status=200,
-            mimetype='application/json')
-    return Response(
-        response=jsonify({'message': 'Employee not found'}).data,
-        status=404,
-        mimetype='application/json')
+        return jsonify({'message': 'Employee deleted successfully'}), 200
+    return jsonify({'message': 'Employee not found'}), 404
