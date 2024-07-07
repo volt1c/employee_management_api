@@ -42,24 +42,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.app.executor": "Run",
-    "Python.db.executor": "Run",
-    "Python.employee_management_api.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "12-rename-src-to-app",
-    "last_opened_file_path": "D:/Projekts/employee_management_api",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.employee_management_api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;1-add-logs-model&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projekts/employee_management_api&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projekts\employee_management_api" />
@@ -229,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720080167341</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat: create decorator save_log">
+      <option name="closed" value="true" />
+      <created>1720349947847</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1720349947847</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -244,6 +253,7 @@
     <MESSAGE value="refactor: use jsonify for response" />
     <MESSAGE value="feat: remove empty module" />
     <MESSAGE value="refactor: remove cyclic imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove cyclic imports" />
+    <MESSAGE value="feat: create decorator save_log" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create decorator save_log" />
   </component>
 </project>
