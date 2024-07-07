@@ -238,7 +238,31 @@
       <option name="project" value="LOCAL" />
       <updated>1720349947847</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refactor: change imports order">
+      <option name="closed" value="true" />
+      <created>1720350184584</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1720350184584</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chore: idea workspace">
+      <option name="closed" value="true" />
+      <created>1720350213842</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1720350213842</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: rename exit, enter logs">
+      <option name="closed" value="true" />
+      <created>1720350412491</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720350412491</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -254,6 +278,9 @@
     <MESSAGE value="feat: remove empty module" />
     <MESSAGE value="refactor: remove cyclic imports" />
     <MESSAGE value="feat: create decorator save_log" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create decorator save_log" />
+    <MESSAGE value="refactor: change imports order" />
+    <MESSAGE value="chore: idea workspace" />
+    <MESSAGE value="feat: rename exit, enter logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: rename exit, enter logs" />
   </component>
 </project>
