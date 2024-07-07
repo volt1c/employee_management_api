@@ -1,19 +1,17 @@
 from flask import request, Blueprint, jsonify
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required
 
 from app.database import db
 from app.models.department import Department
+from app.utils.decorators.save_log import save_log
 
 departments = Blueprint('departments', __name__)
 
 
 @departments.route('/', methods=['POST'])
 @jwt_required()
+@save_log
 def create_department():
-    current_admin_id = get_jwt_identity()
-    if not current_admin_id:
-        return jsonify({'message': 'Unauthorized'}), 403
-
     data = request.get_json()
     new_department = Department(department_name=data['department_name'])
     db.session.add(new_department)
@@ -24,10 +22,6 @@ def create_department():
 @departments.route('/', methods=['GET'])
 @jwt_required()
 def get_departments():
-    current_admin_id = get_jwt_identity()
-    if not current_admin_id:
-        return jsonify({'message': 'Unauthorized'}), 403
-
     departments_all = Department.query.all()
     departments_list = [
         {
@@ -40,10 +34,6 @@ def get_departments():
 @departments.route('/<int:department_id>', methods=['GET'])
 @jwt_required()
 def get_department(department_id):
-    current_admin_id = get_jwt_identity()
-    if not current_admin_id:
-        return jsonify({'message': 'Unauthorized'}), 403
-
     department = Department.query.get(department_id)
     if department:
         department_data = {
@@ -56,15 +46,13 @@ def get_department(department_id):
 
 @departments.route('/<int:department_id>', methods=['PUT'])
 @jwt_required()
+@save_log
 def update_department(department_id):
-    current_admin_id = get_jwt_identity()
-    if not current_admin_id:
-        return jsonify({'message': 'Unauthorized'}), 403
-
     data = request.get_json()
     department = Department.query.get(department_id)
     if department:
-        department.department_name = data['department_name']
+        new_name = data['department_name']
+        department.department_name = new_name
         db.session.commit()
         return jsonify({'message': 'Department updated successfully'}), 200
     return jsonify({'message': 'Department not found'}), 404
@@ -72,11 +60,8 @@ def update_department(department_id):
 
 @departments.route('/<int:department_id>', methods=['DELETE'])
 @jwt_required()
+@save_log
 def delete_department(department_id):
-    current_admin_id = get_jwt_identity()
-    if not current_admin_id:
-        return jsonify({'message': 'Unauthorized'}), 403
-
     department = Department.query.get(department_id)
     if department:
         db.session.delete(department)
