@@ -6,8 +6,8 @@ from app.models.attendace import Attendance
 attendance = Blueprint('attendance', __name__)
 
 
-@attendance.route('/log_entry', methods=['POST'])
-def log_entry():
+@attendance.route('/report/entry', methods=['POST'])
+def report_entry():
     data = request.get_json()
     employee_id = data['employee_id']
     new_entry = Attendance(employee_id=employee_id)
@@ -16,8 +16,8 @@ def log_entry():
     return jsonify({'message': 'Entry logged successfully'}), 201
 
 
-@attendance.route('/log_exit', methods=['POST'])
-def log_exit():
+@attendance.route('/report/exit', methods=['POST'])
+def report_exit():
     data = request.get_json()
     employee_id = data['employee_id']
     log = (Attendance.query
