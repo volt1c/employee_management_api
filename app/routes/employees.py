@@ -4,13 +4,14 @@ from flask_jwt_extended import jwt_required
 
 from app.database import db
 from app.models.employee import Employee
-
+from app.utils.decorators.save_log import save_log
 
 employees = Blueprint('employees', __name__)
 
 
 @employees.route('/', methods=['POST'])
 @jwt_required()
+@save_log
 def create_employee():
     data = request.get_json()
     new_employee = Employee(
@@ -62,6 +63,7 @@ def get_employee(employee_id):
 
 @employees.route('/<int:employee_id>', methods=['PUT'])
 @jwt_required()
+@save_log
 def update_employee(employee_id):
     data = request.get_json()
     employee = Employee.query.get(employee_id)
@@ -79,6 +81,7 @@ def update_employee(employee_id):
 
 @employees.route('/<int:employee_id>', methods=['DELETE'])
 @jwt_required()
+@save_log
 def delete_employee(employee_id):
     employee = Employee.query.get(employee_id)
     if employee:

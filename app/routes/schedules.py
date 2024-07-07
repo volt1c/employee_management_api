@@ -4,12 +4,14 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.models.schedule import Schedule
 
 from app.database import db
+from app.utils.decorators.save_log import save_log
 
 schedules = Blueprint('schedules', __name__)
 
 
 @schedules.route('/schedules', methods=['POST'])
 @jwt_required()
+@save_log
 def create_schedule():
     current_admin_id = get_jwt_identity()
     if not current_admin_id:
@@ -72,6 +74,7 @@ def get_schedule(schedule_id):
 
 @schedules.route('/schedules/<int:schedule_id>', methods=['PUT'])
 @jwt_required()
+@save_log
 def update_schedule(schedule_id):
     current_admin_id = get_jwt_identity()
     if not current_admin_id:
@@ -92,6 +95,7 @@ def update_schedule(schedule_id):
 
 @schedules.route('/schedules/<int:schedule_id>', methods=['DELETE'])
 @jwt_required()
+@save_log
 def delete_schedule(schedule_id):
     current_admin_id = get_jwt_identity()
     if not current_admin_id:

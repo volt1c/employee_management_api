@@ -6,6 +6,7 @@ from flask_jwt_extended import create_access_token
 
 from app.models.admin import Admin
 from app.database import db
+from app.utils.decorators.save_log import save_log
 
 # user controller blueprint to be registered with api blueprint
 auth = Blueprint('auth', __name__)
@@ -13,6 +14,7 @@ auth = Blueprint('auth', __name__)
 
 # Authentication routes
 @auth.route('/login', methods=['POST'])
+@save_log
 def admin_login():
     data = request.get_json()
     username = data.get('username')
@@ -26,6 +28,7 @@ def admin_login():
 
 
 @auth.route('/register', methods=['POST'], )
+@save_log
 def admin_register():
     if os.environ.get('ROUTE_ADMIN_REGISTRATION') == 'False':
         return abort(404)
