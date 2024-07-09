@@ -24,7 +24,8 @@ def save_log(func: Callable[..., tuple[Response, int]]):
             new_log = Log(admin_id=admin_id, message=message)
             db.session.add(new_log)
             db.session.commit()
-
         return res
+
+    inner.__name__ = func.__name__
 
     return inner
