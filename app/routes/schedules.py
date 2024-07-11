@@ -9,7 +9,7 @@ from app.utils.decorators.save_log import save_log
 schedules = Blueprint('schedules', __name__)
 
 
-@schedules.route('/schedules', methods=['POST'])
+@schedules.route('/', methods=['POST'])
 @jwt_required()
 @save_log
 def create_schedule():
@@ -30,7 +30,7 @@ def create_schedule():
     return jsonify({'message': 'Schedule created successfully'}), 201
 
 
-@schedules.route('/schedules', methods=['GET'])
+@schedules.route('/', methods=['GET'])
 @jwt_required()
 def get_schedules():
     current_admin_id = get_jwt_identity()
@@ -50,7 +50,7 @@ def get_schedules():
     return jsonify(schedules_list), 200
 
 
-@schedules.route('/schedules/<int:schedule_id>', methods=['GET'])
+@schedules.route('/<int:schedule_id>', methods=['GET'])
 @jwt_required()
 def get_schedule(schedule_id):
     current_admin_id = get_jwt_identity()
@@ -72,7 +72,7 @@ def get_schedule(schedule_id):
     return jsonify({'message': 'Schedule not found'}), 404
 
 
-@schedules.route('/schedules/<int:schedule_id>', methods=['PUT'])
+@schedules.route('/<int:schedule_id>', methods=['PUT'])
 @jwt_required()
 @save_log
 def update_schedule(schedule_id):
@@ -93,7 +93,7 @@ def update_schedule(schedule_id):
     return jsonify({'message': 'Schedule not found'}), 404
 
 
-@schedules.route('/schedules/<int:schedule_id>', methods=['DELETE'])
+@schedules.route('/<int:schedule_id>', methods=['DELETE'])
 @jwt_required()
 @save_log
 def delete_schedule(schedule_id):
