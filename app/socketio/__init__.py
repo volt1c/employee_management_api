@@ -1,3 +1,4 @@
+# pylint: disable=possibly-used-before-assignment
 from flask import request
 from flask_socketio import SocketIO, join_room, emit
 
@@ -12,9 +13,9 @@ if 'rooms' not in locals():
 @socketio.on('disconnect')
 def on_disconnect():
     sid = request.sid
-    for room in rooms:
-        if sid in rooms[room]:
-            rooms[room].remove(sid)
+    for room in rooms.items():
+        if sid in room:
+            room.remove(sid)
 
 
 @socketio.on('join')
@@ -28,9 +29,10 @@ def on_join_preview(data):
 
     if room in rooms:
         if sid in rooms[room]:
-            return emit('message', {
+            emit('message', {
                 'message': 'You are already connected to this preview.'
             }, to=sid)
+            return
         rooms[room].append(sid)
     else:
         rooms[room] = [sid]
