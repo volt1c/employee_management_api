@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from app.database import db
 from app.routes import api
+from app.socketio import socketio
 
 load_dotenv()
 
@@ -26,6 +27,7 @@ db.init_app(app)
 bcrypt = Bcrypt(app)
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
+socketio.init_app(app)
 
 app.register_blueprint(api, url_prefix="/api")
 
