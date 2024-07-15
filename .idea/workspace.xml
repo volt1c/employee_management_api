@@ -337,12 +337,42 @@
       <option name="project" value="LOCAL" />
       <updated>1721046088679</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix: do not emit when no jwt">
+      <option name="closed" value="true" />
+      <created>1721046282747</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1721046282747</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix: correct property accessing">
+      <option name="closed" value="true" />
+      <created>1721046324809</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1721046324809</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat: add preview">
+      <option name="closed" value="true" />
+      <created>1721046371225</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1721046371225</updated>
+    </task>
+    <task id="LOCAL-00029" summary="chore: idea">
+      <option name="closed" value="true" />
+      <created>1721046382752</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1721046382752</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init" />
-    <MESSAGE value="chore: add update-req cmd script" />
     <MESSAGE value="chore: add pylint" />
     <MESSAGE value="chore: edit pylintrc" />
     <MESSAGE value="fix: db import" />
@@ -364,7 +394,10 @@
     <MESSAGE value="refactor: pylint" />
     <MESSAGE value="feat(schedules): correct route paths" />
     <MESSAGE value="fix(auth): login" />
+    <MESSAGE value="fix: do not emit when no jwt" />
     <MESSAGE value="fix: correct property accessing" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: correct property accessing" />
+    <MESSAGE value="feat: add preview" />
+    <MESSAGE value="chore: idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: idea" />
   </component>
 </project>
