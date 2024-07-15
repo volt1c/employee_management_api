@@ -2,11 +2,13 @@ from datetime import datetime
 from flask import request, jsonify, Blueprint
 from app.database import db
 from app.models.attendace import Attendance
+from app.utils.decorators.emit_preview import emit_preview
 
 attendance = Blueprint('attendance', __name__)
 
 
 @attendance.route('/report/entry', methods=['POST'])
+@emit_preview
 def report_entry():
     data = request.get_json()
     employee_id = data['employee_id']
@@ -17,6 +19,7 @@ def report_entry():
 
 
 @attendance.route('/report/exit', methods=['POST'])
+@emit_preview
 def report_exit():
     data = request.get_json()
     employee_id = data['employee_id']
