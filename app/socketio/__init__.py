@@ -3,6 +3,7 @@ from flask import request
 from flask_socketio import SocketIO, join_room, emit
 
 from app.utils.rooms.encode_room import encode_room
+from app.utils.rooms.prepare_preview import prepare_preview
 
 socketio = SocketIO()
 
@@ -43,3 +44,6 @@ def on_join_preview(data):
     emit('message', {
         'message': 'Connected successfully. 🔌'
     }, to=sid)
+    emit('preview',
+         prepare_preview(room),
+         to=sid)
