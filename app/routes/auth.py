@@ -6,7 +6,6 @@ from flask_jwt_extended import create_access_token
 
 from app.models.admin import Admin
 from app.database import db
-from app.utils.decorators.save_log import save_log
 
 # user controller blueprint to be registered with api blueprint
 auth = Blueprint('auth', __name__)
