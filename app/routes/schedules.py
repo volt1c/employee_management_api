@@ -42,7 +42,7 @@ def get_schedules():
         'schedule_id': sch.schedule_id,
         'employee_id': sch.employee_id,
         'department_id': sch.department_id,
-        'department_name': sch.department.name,
+        'department_name': sch.department.department_name,
         'work_date': sch.work_date.strftime('%Y-%m-%d'),
         'start_time': sch.start_time.strftime('%H:%M:%S'),
         'end_time': sch.end_time.strftime('%H:%M:%S')
@@ -63,7 +63,7 @@ def get_schedule(schedule_id):
             'schedule_id': schedule.schedule_id,
             'employee_id': schedule.employee_id,
             'department_id': schedule.department_id,
-            'department_name': schedule.department.name,
+            'department_name': schedule.department.department_name,
             'work_date': schedule.work_date.strftime('%Y-%m-%d'),
             'start_time': schedule.start_time.strftime('%H:%M:%S'),
             'end_time': schedule.end_time.strftime('%H:%M:%S')
